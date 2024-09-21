@@ -19,5 +19,6 @@ export default {
       },
     },
   },
+  safelist: ["bg-green-300"],
   plugins: [require("daisyui")],
 };

@@ -3,11 +3,16 @@ const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const { setLocale } = useI18n();
 const showLangOption = ref<boolean>(false);
-const toggleLangOpttion = useToggle(showLangOption);
+const toggleLangOption = useToggle(showLangOption);
 const showMobileNavbar = ref<boolean>(false);
 
+/**
+ *
+ * @param {string} lang The name of language target. It accepts 'id' and 'en'
+ */
 const changeLanguages = (lang: "id" | "en") => {
   setLocale(lang);
+  toggleLangOption();
 };
 </script>
 
@@ -58,7 +63,7 @@ const changeLanguages = (lang: "id" | "en") => {
         <div id="lang-dropdown" class="relative">
           <i
             class="fa-solid fa-globe cursor-pointer"
-            @click="toggleLangOpttion()"
+            @click="toggleLangOption()"
           ></i>
           <div
             v-show="showLangOption"
