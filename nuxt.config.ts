@@ -4,7 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   pages: true,
   css: ["~/assets/css/main.css"],
-  modules: ["@vueuse/nuxt"],
+  modules: ["@vueuse/nuxt", "@nuxtjs/i18n"],
+  i18n: {
+    vueI18n: "./i18n.config.ts",
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
