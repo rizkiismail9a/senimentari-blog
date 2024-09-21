@@ -62,7 +62,7 @@ const changeLanguages = (lang: "id" | "en") => {
           ></i>
           <div
             v-show="showLangOption"
-            class="bg-white w-[100px] h-fit text-sm shadow-md absolute text-dark dark:text-white p-2 rounded-md"
+            class="bg-white dark:bg-dark-medium w-[100px] h-fit text-sm shadow-md absolute right-3 md:right-0 text-dark dark:text-white p-2 rounded-md"
           >
             <ul>
               <li class="cursor-pointer" @click="changeLanguages('id')">
