@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>ini adalah halaman home</div>
+  <div>
+    <h1 class="font-extrabold">INi adalah halaman home</h1>
+  </div>
 </template>
