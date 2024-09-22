@@ -29,6 +29,32 @@ export default defineNuxtConfig({
           referrerpolicy: "no-referrer",
         },
       ],
+      meta: [
+        { charset: "utf-8" },
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1.0",
+        },
+        {
+          name: "description",
+          content:
+            "Aplikasi penyaji tips, trik, dan solusi inovatif untuk mengatasi masalah bug dan konfigurasi dalam pengembangan software. Didesain khusus untuk developer pemula yang ingin belajar lebih mudah dan efisien.",
+        },
+        {
+          name: "keywords",
+          content:
+            "javascript, website, developer, pemula, bug, error, cara, trik",
+        },
+        {
+          name: "author",
+          content: "Yuri S. Ostrovsky",
+        },
+        {
+          name: "robots",
+          content: "index, follow",
+        },
+        // Jangan lupa og:meta nanti
+      ],
     },
   },
 });
