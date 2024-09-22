@@ -8,5 +8,5 @@ export type ArticlePreview = {
     alt: string;
   };
   preview: string;
-  category: Category;
+  tags: string[];
 };

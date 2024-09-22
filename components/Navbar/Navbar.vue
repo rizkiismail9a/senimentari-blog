@@ -48,7 +48,7 @@ const changeLanguages = (lang: "id" | "en") => {
       >
         <i :class="`fa-solid text-lg ${isDark ? 'fa-sun' : 'fa-moon'}`"></i>
       </div>
-      <div id="toggle-button" class="flex gap-2 items-center">
+      <div id="toggle-button" class="flex gap-4 items-center">
         <i
           @click="showMobileNavbar = !showMobileNavbar"
           class="fa-solid fa-bars md:hidden inline-block text-lg cursor-pointer"
@@ -62,12 +62,14 @@ const changeLanguages = (lang: "id" | "en") => {
         </div>
         <div id="lang-dropdown" class="relative">
           <i
-            class="fa-solid fa-globe cursor-pointer"
+            class="fa-solid fa-globe cursor-pointer text-lg"
             @click="toggleLangOption()"
           ></i>
+
+          <!-- Language option dropdown -->
           <div
             v-show="showLangOption"
-            class="bg-white dark:bg-dark-medium w-[100px] h-fit text-sm shadow-md absolute right-3 md:right-0 text-dark dark:text-white p-2 rounded-md"
+            class="bg-white dark:bg-dark-medium w-[100px] h-fit text-sm shadow-md absolute z-10 right-3 md:right-0 text-dark dark:text-white p-2 rounded-md"
           >
             <ul>
               <li class="cursor-pointer" @click="changeLanguages('id')">

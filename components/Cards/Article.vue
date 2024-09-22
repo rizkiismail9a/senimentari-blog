@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import type { Category } from "~/types/category.type";
-
 defineProps<{
   image: string;
   imageAlt: string;
   title: string;
   preview: string;
-  category: Category;
+  tags: string[];
 }>();
 </script>
+
 <template>
   <div
-    class="bg-white dark:bg-dark-medium shadow-md rounded-sm w-full mx-auto max-w-[300px] h-[380px] px-3 py-2 flex flex-col justify-center gap-2"
+    class="bg-white dark:bg-dark-medium shadow-md rounded-sm w-full mx-auto max-w-[300px] h-[400px] px-3 py-2 flex flex-col justify-center gap-2"
   >
     <img
       class="w-full h-[200px] object-cover overflow-hidden rounded-t-sm"
@@ -21,11 +20,14 @@ defineProps<{
 
     <h4 class="font-bold">{{ $t(title) }}</h4>
 
-    <div
-      id="category"
-      :class="`bg-${category.color}-300 text-white inline-block py-1 px-3 rounded-lg text-xs w-fit`"
-    >
-      {{ category.name }}
+    <div id="tags">
+      <span
+        v-for="tag in tags"
+        :key="tag"
+        class="bg-green-500 text-white inline-block mr-1 py-1 px-3 rounded-lg text-xs w-fit"
+      >
+        {{ tag }}
+      </span>
     </div>
     <div
       v-html="$t(preview)"
