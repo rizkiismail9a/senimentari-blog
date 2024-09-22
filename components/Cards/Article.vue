@@ -4,6 +4,7 @@ import type { Category } from "~/types/category.type";
 defineProps<{
   image: string;
   imageAlt: string;
+  title: string;
   preview: string;
   category: Category;
 }>();
@@ -18,15 +19,19 @@ defineProps<{
       :alt="imageAlt"
     />
 
+    <h4 class="font-bold">{{ $t(title) }}</h4>
+
     <div
       id="category"
       :class="`bg-${category.color}-300 text-white inline-block py-1 px-3 rounded-lg text-xs w-fit`"
     >
       {{ category.name }}
     </div>
-    <div id="preview" class="text-xs line-clamp-5 text-justify">
-      {{ preview }}
-    </div>
+    <div
+      v-html="$t(preview)"
+      id="preview"
+      class="text-xs line-clamp-5 text-justify"
+    ></div>
     <div
       class="text-xs cursor-pointer hover:underline text-blue dark:text-white"
     >

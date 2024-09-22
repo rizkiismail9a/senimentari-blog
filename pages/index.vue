@@ -4,12 +4,12 @@ import type { ArticlePreview } from "~/types/articlePreview.type";
 const articles = ref<ArticlePreview[]>([
   {
     id: "id-acak",
+    title: "title-1",
     image: {
       path: "test.jpg",
       alt: "kamera",
     },
-    preview:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, autem maxime possimus neque eaque libero facilis nemo assumenda! Ullam illo obcaecati nesciunt officiis iusto reprehenderit? Animi quibusdam, excepturi rerum deleniti suscipit alias nisi molestiae eligendi, fugiat similique non, error vitae!",
+    preview: "preview-1",
     category: {
       id: 1,
       name: "web-dev",
@@ -44,6 +44,7 @@ const articles = ref<ArticlePreview[]>([
       :image="`/images/${article.image.path}`"
       :image-alt="article.image.alt"
       :preview="article.preview"
+      :title="article.title"
       :category="article.category"
     />
   </div>

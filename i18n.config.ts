@@ -1,13 +1,16 @@
+import {
+  articleOneEn,
+  articleOneIndo,
+} from "./locales/articles/articleTest.locale";
+import idLocale from "./locales/id.locale";
+
 export default defineI18nConfig(() => ({
   legacy: false,
   locale: "id",
   messages: {
     id: {
-      home: "Beranda",
-      about: "Tentang",
-      "home-header": "Kumpulan Artikel",
-      "home-header-desc":
-        "Website ini menyajikan tips, trik, dan solusi inovatif untuk mengatasi masalah bug dan konfigurasi dalam pengembangan software. Didesain khusus untuk developer pemula yang ingin belajar lebih mudah dan efisien.",
+      ...idLocale,
+      ...articleOneIndo,
     },
     en: {
       home: "Home",
@@ -15,6 +18,7 @@ export default defineI18nConfig(() => ({
       "home-header": "Article Collection",
       "home-header-desc":
         "This website offers tips, tricks, and creative solutions to help fix bugs and configuration issues in software development. Designed especially for beginner developers looking to learn easier and more efficiently.",
+      ...articleOneEn,
     },
   },
 }));
