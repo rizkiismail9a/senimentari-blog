@@ -12,7 +12,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: "#0f0f0f",
+        dark: "#292827",
         "dark-medium": "#0a0a0a",
         white: "#ffffff",
         blue: "#86a7db",

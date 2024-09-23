@@ -21,4 +21,24 @@ export const articles = ref<ArticlePreview[]>([
     preview: "preview-2",
     tags: ["react", "javascript"],
   },
+  {
+    id: "id-acak-2",
+    title: "title-2",
+    image: {
+      path: "test.jpg",
+      alt: "kamera",
+    },
+    preview: "preview-2",
+    tags: ["react", "javascript"],
+  },
+  {
+    id: "id-acak-2",
+    title: "title-2",
+    image: {
+      path: "test.jpg",
+      alt: "kamera",
+    },
+    preview: "preview-2",
+    tags: ["react", "javascript"],
+  },
 ]);
