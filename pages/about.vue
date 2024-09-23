@@ -22,9 +22,11 @@ const linkContents = ref<{ href: string; title: string }[]>([
   },
 ]);
 
+/**
+ *
+ * @param {string} target id of target element
+ */
 const scrollToView = (target: string) => {
-  console.log(target);
-
   document.getElementById(target)?.scrollIntoView({
     behavior: "smooth",
     block: "center",
