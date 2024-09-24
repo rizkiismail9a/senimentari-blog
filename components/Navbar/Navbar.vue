@@ -18,7 +18,7 @@ const changeLanguages = (lang: "id" | "en") => {
 
 <template>
   <nav
-    class="navbar p-4 bg-blue dark:bg-dark-medium flex flex-col gap-4 text-white sticky top-0 z-50 shadow-md"
+    class="p-4 bg-blue dark:bg-dark-medium flex flex-col gap-4 text-white sticky top-0 z-50 shadow-md"
   >
     <div
       id="navbar-wrapper"
