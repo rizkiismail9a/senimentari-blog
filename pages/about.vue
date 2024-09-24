@@ -2,23 +2,23 @@
 const linkContents = ref<{ href: string; title: string }[]>([
   {
     href: "problem-background",
-    title: "# Ngoding Itu Susah",
+    title: "coding-is-hard",
   },
   {
     href: "why-we-are-here",
-    title: "# Mengapa Website Ini Ada?",
+    title: "why-we-are-here",
   },
   {
     href: "what-will-you-get",
-    title: "# Apa yang Akan Anda Temukan di Sini?",
+    title: "what-will-you-get",
   },
   {
     href: "mission",
-    title: "# Misi Kami",
+    title: "mission",
   },
   {
     href: "about-author",
-    title: "# Tentang Penulis",
+    title: "about-author",
   },
 ]);
 
@@ -48,7 +48,7 @@ const scrollToView = (target: string) => {
         :href="link.href"
         class="italic font-semibold cursor-pointer"
       >
-        {{ link.title }}
+        # {{ $t(link.title) }}
       </span>
     </div>
     <div id="about-content" class="flex flex-col gap-10 max-w-[900px]">
@@ -65,7 +65,7 @@ const scrollToView = (target: string) => {
         <div data-aos="fade-left" class="flex flex-col gap-8">
           <div>
             <h1 class="italic font-extrabold text-[36px]">
-              "Ngoding itu susah" <span class="normal-case">😵‍💫</span>
+              {{ $t("coding-is-hard") }} <span class="normal-case">😵‍💫</span>
             </h1>
             <span class="italic">~ Sandhika Galih - Dosen sejuta umat</span>
           </div>
@@ -76,14 +76,7 @@ const scrollToView = (target: string) => {
             class="w-[500px] h-[500px] md:hidden block object-cover shadow-lg rounded-xl"
           />
           <p class="text-base">
-            Selama perjalanan saya dalam belajar pengembangan software, saya
-            sering dihadapkan dengan berbagai masalah, mulai dari error, bug,
-            hingga konfigurasi yang membingungkan. Sayangnya, sumber daya yang
-            membahas solusi masalah-masalah tersebut seringkali sulit ditemukan,
-            terutama dalam bahasa Indonesia. Pengalaman saya dalam mencari
-            solusi untuk masalah seperti konfigurasi Nuxt Auth, penggunaan i18n,
-            atau bahkan cara menggunakan class Tailwind secara dinamis sangat
-            terbatas.
+            {{ $t("background") }}
           </p>
         </div>
       </section>
@@ -93,7 +86,7 @@ const scrollToView = (target: string) => {
         class="flex flex-col gap-4 items-center bg-white dark:bg-dark-medium p-5 rounded-xl shadow-md"
       >
         <h2 class="text-[34px] font-extrabold" data-aos="fade-up">
-          Mengapa Website Ini Ada? 🤔
+          {{ $t("why-we-are-here") }} 🤔
         </h2>
         <div class="flex md:flex-row flex-col gap-2 items-center">
           <div
@@ -119,13 +112,7 @@ const scrollToView = (target: string) => {
             </div>
           </div>
           <p class="md:w-[50%] flex-1" data-aos="fade-right">
-            Website ini hadir untuk menjawab kebutuhan para developer pemula
-            yang mungkin mengalami kesulitan yang sama seperti yang saya alami.
-            Saya ingin berbagi pengalaman, tips, trik, dan solusi kreatif yang
-            saya temukan selama belajar coding. Dengan tujuan memudahkan
-            developer pemula dalam memahami dan menyelesaikan masalah yang
-            sering ditemui, khususnya bagi mereka yang mencari panduan dalam
-            bahasa Indonesia.
+            {{ $t("reason-of-web") }}
           </p>
           <div
             class="md:flex hidden items-end gap-2 h-[100%]"
@@ -157,22 +144,20 @@ const scrollToView = (target: string) => {
         class="flex flex-col gap-4 items-center bg-white dark:bg-dark-medium p-5 rounded-xl shadow-md"
       >
         <h2 data-aos="fade-left" class="text-[34px] font-extrabold">
-          Apa yang Akan Anda Temukan di Sini? 🔍
+          {{ $t("what-will-you-get") }} 🔍
         </h2>
 
-        <ul data-aos="fade-right">
+        <ul data-aos="fade-right" class="w-full">
           <li class="flex flex-col gap-2">
-            <span class="font-bold">💡 Solusi Praktis </span>
+            <span class="font-bold">💡 {{ $t("practical-solution") }} </span>
             <span>
-              Artikel-artikel yang membahas solusi langsung untuk bug dan error
-              yang sering muncul dalam pengembangan software.
+              {{ $t("practical-solution-text") }}
             </span>
           </li>
           <li class="flex flex-col gap-2">
-            <span class="font-bold">⚙️ Panduan Konfigurasi </span>
+            <span class="font-bold">⚙️ {{ $t("config-guide") }}</span>
             <span>
-              Langkah-langkah detail untuk mengatur berbagai tool dan framework
-              seperti Nuxt Auth dan i18n.
+              {{ $t("config-guide-text") }}
             </span>
           </li>
         </ul>
@@ -183,19 +168,9 @@ const scrollToView = (target: string) => {
         class="flex flex-col gap-4 items-center bg-white dark:bg-dark-medium p-5 rounded-xl shadow-md"
       >
         <h2 data-aos="fade-right" class="text-[34px] font-extrabold">
-          Misi Kami 🎯
+          {{ $t("our-mission") }} 🎯
         </h2>
-        <p data-aos="fade-left">
-          Misi saya adalah memberikan solusi yang tidak hanya praktis, tetapi
-          juga mudah dipahami dan diterapkan, terutama bagi mereka yang baru
-          mulai berkecimpung di dunia pengembangan software. Website ini
-          dirancang untuk membantu Anda belajar lebih mudah dan efisien tanpa
-          harus terjebak dalam masalah-masalah teknis yang membingungkan. <br />
-          Jadi, tunggu apa lagi?
-          <NuxtLink to="/" class="text-blue hover:underline"
-            >Temukan solusi Anda sekarang!</NuxtLink
-          >
-        </p>
+        <p v-html="$t('our-mission-text')" data-aos="fade-left"></p>
       </section>
     </div>
     <div class="h-full flex-1 hidden md:block" />
@@ -206,7 +181,7 @@ const scrollToView = (target: string) => {
       id="about-author"
       class="flex flex-col gap-4 items-center bg-white dark:bg-dark-medium p-5 rounded-xl shadow-md mt-3"
     >
-      <h3 class="text-[30px] font-bold">Tentang Author</h3>
+      <h3 class="text-[30px] font-bold">{{ $t("about-author") }}</h3>
       <div class="flex gap-3">
         <div class="flex flex-col gap-4">
           <p>

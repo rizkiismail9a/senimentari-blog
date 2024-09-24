@@ -19,6 +19,6 @@ export default {
       },
     },
   },
-  safelist: ["bg-green-300", "font-bold"],
+  safelist: ["bg-green-300", "font-bold", "text-blue", "hover:underline"],
   plugins: [require("daisyui")],
 };
