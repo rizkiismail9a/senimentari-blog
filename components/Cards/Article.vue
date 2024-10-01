@@ -4,18 +4,20 @@ defineProps<{
   imageAlt: string;
   title: string;
   preview: string;
+  credit: string;
   tags: string[];
 }>();
 </script>
 
 <template>
   <div
-    class="bg-white dark:bg-dark-medium shadow-md rounded-sm w-full mx-auto max-w-[300px] h-[400px] px-3 py-2 flex flex-col justify-center gap-2"
+    class="bg-white dark:bg-dark-medium shadow-md rounded-sm w-full mx-auto max-w-[300px] h-[450px] px-3 py-2 flex flex-col justify-center gap-2"
   >
     <img
       class="w-full h-[200px] object-cover overflow-hidden rounded-t-sm"
-      :src="image"
+      :src="`/_nuxt/assets/images/${image}`"
       :alt="imageAlt"
+      :title="credit"
     />
 
     <h4 class="font-bold">{{ $t(title) }}</h4>

@@ -2,43 +2,15 @@ import type { ArticlePreview } from "~/types/articlePreview.type";
 
 export const articles = ref<ArticlePreview[]>([
   {
-    id: "id-acak",
-    title: "title-1",
+    id: "article-1",
+    title: "Cara Menggunakan Skema Refresh pada Nuxt Auth",
     image: {
-      path: "test.jpg",
-      alt: "kamera",
+      path: "login.webp",
+      alt: "login",
+      credit: "Photo by Miguel Á. Padriñán",
     },
-    preview: "preview-1",
-    tags: ["vue", "javascript"],
-  },
-  {
-    id: "id-acak-2",
-    title: "title-2",
-    image: {
-      path: "test.jpg",
-      alt: "kamera",
-    },
-    preview: "preview-2",
-    tags: ["react", "javascript"],
-  },
-  {
-    id: "id-acak-2",
-    title: "title-2",
-    image: {
-      path: "test.jpg",
-      alt: "kamera",
-    },
-    preview: "preview-2",
-    tags: ["react", "javascript"],
-  },
-  {
-    id: "id-acak-2",
-    title: "title-2",
-    image: {
-      path: "test.jpg",
-      alt: "kamera",
-    },
-    preview: "preview-2",
-    tags: ["react", "javascript"],
+    preview:
+      "Jika Anda bekerja dengan modul Nuxt Auth untuk penanganan alur skema autentikasi, mungkin Anda akan bertanya, bagaimana caranya menggunakan skema refresh token ini menggunakan Nuxt Auth, terutama jika Anda menggunakan server Backend sendiri atau dalam konteks Nuxt Auth ini disebut strategi login local",
+    tags: ["middleware", "nuxt auth"],
   },
 ]);

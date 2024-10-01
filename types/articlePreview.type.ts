@@ -6,6 +6,7 @@ export type ArticlePreview = {
   image: {
     path: string;
     alt: string;
+    credit: string;
   };
   preview: string;
   tags: string[];

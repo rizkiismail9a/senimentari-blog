@@ -69,10 +69,11 @@ const findArticle = () => {
         <CardsArticle
           v-for="article in filteredArticle"
           :key="article.id"
-          :image="`/images/${article.image.path}`"
+          :image="article.image.path"
           :image-alt="article.image.alt"
           :preview="article.preview"
           :title="article.title"
+          :credit="article.image.credit"
           :tags="article.tags"
         />
       </template>
@@ -80,7 +81,8 @@ const findArticle = () => {
         <CardsArticle
           v-for="article in articles"
           :key="article.id"
-          :image="`/images/${article.image.path}`"
+          :credit="article.image.credit"
+          :image="article.image.path"
           :image-alt="article.image.alt"
           :preview="article.preview"
           :title="article.title"
