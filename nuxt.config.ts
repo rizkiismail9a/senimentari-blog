@@ -97,7 +97,44 @@ export default defineNuxtConfig({
           name: "robots",
           content: "index, follow",
         },
-        // Jangan lupa og:meta nanti
+        {
+          property: "og:title",
+          content: "senimentari blog: jurnal perjalanan belajar",
+        },
+        {
+          property: "og:description",
+          content:
+            "Kumpulan artikel yang berisi tips, trik, dan panduan konfigurasi serta debug pada pengembangan software",
+        },
+        {
+          property: "og:type",
+          content: "article",
+        },
+        {
+          property: "og:url",
+          content: "https://senimentari-blog.vercel.app/",
+        },
+        {
+          property: "og:image",
+          content: "https://senimentari-blog.vercel.app/images/logo-blog.webp",
+        },
+        {
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          name: "twitter:title",
+          content: "senimentari blog: jurnal perjalanan belajar",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "Aplikasi penyaji tips, trik, dan solusi inovatif untuk mengatasi masalah bug dan konfigurasi dalam pengembangan software.",
+        },
+        {
+          name: "twitter:image",
+          content: "https://senimentari-blog.vercel.app/images/logo-blog.webp",
+        },
       ],
     },
   },
