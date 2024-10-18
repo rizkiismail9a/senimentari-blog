@@ -15,12 +15,16 @@ defineProps<{
   >
     <img
       class="w-full h-[200px] object-cover overflow-hidden rounded-t-sm"
-      :src="`/_nuxt/assets/images/${image}`"
+      :src="`/images/${image}`"
       :alt="imageAlt"
       :title="credit"
     />
 
-    <h4 class="font-bold">{{ $t(title) }}</h4>
+    <h4 class="font-bold">
+      <NuxtLink to="/post/refresh-token-scheme">
+        {{ $t(title) }}
+      </NuxtLink>
+    </h4>
 
     <div id="tags">
       <span
