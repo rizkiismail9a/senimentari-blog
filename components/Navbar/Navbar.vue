@@ -44,9 +44,10 @@ const changeLanguages = (lang: "id" | "en") => {
           {{ $t("about") }}
         </NuxtLink>
       </div>
+
       <div
         id="mobile-dark-mode-toggle"
-        class="block md:hidden"
+        class="block md:!hidden"
         @click="toggleDark()"
       >
         <i :class="`fa-solid text-lg ${isDark ? 'fa-sun' : 'fa-moon'}`"></i>
@@ -54,15 +55,15 @@ const changeLanguages = (lang: "id" | "en") => {
       <div id="toggle-button" class="flex gap-4 items-center">
         <i
           @click="showMobileNavbar = !showMobileNavbar"
-          class="fa-solid fa-bars md:hidden inline-block text-lg cursor-pointer"
+          class="hamburger fa-solid fa-bars text-lg cursor-pointer"
         ></i>
-        <div @click="toggleDark()">
-          <i
-            :class="`fa-solid ${
-              isDark ? 'fa-sun' : 'fa-moon'
-            } text-lg hidden md:inline-block cursor-pointer`"
-          ></i>
-        </div>
+        <i
+          @click="toggleDark()"
+          :class="`dark-toggle fa-solid ${
+            isDark ? 'fa-sun' : 'fa-moon'
+          } text-lg cursor-pointer`"
+        ></i>
+
         <div id="lang-dropdown" class="relative">
           <i
             class="fa-solid fa-globe cursor-pointer text-lg"
@@ -110,3 +111,31 @@ const changeLanguages = (lang: "id" | "en") => {
     </div>
   </nav>
 </template>
+
+<style>
+.hamburger {
+  display: none;
+}
+
+#toggle-button {
+  align-items: center;
+}
+
+#lang-dropdown {
+  line-height: 0;
+}
+
+.dark-toggle {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .dark-toggle {
+    display: none;
+  }
+}
+</style>
