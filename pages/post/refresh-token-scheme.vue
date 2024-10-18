@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const tags = ref<string[]>(["middleware", "nuxt auth"]);
-
 useHead({
   meta: [
     {
@@ -53,6 +51,12 @@ useHead({
     },
   ],
 });
+
+const tags = ref<string[]>(["middleware", "nuxt auth"]);
+const references = ref<string[]>([
+  "https://www.wolfpack-digital.com/blogposts/nuxt-auth-refresh-token-authentication-in-your-nuxt-app",
+  "https://auth.nuxtjs.org/schemes/refresh/",
+]);
 </script>
 
 <template>
@@ -70,7 +74,7 @@ useHead({
       </span>
     </section>
     <section class="text-base text-gray-600 dark:text-gray-300 mx-auto">
-      Selasa, 1 Oktober 2024
+      Selasa, 18 Oktober 2024
     </section>
     <h1 class="font-extrabold text-4xl text-center">
       Cara Menggunakan Skema Refresh pada Nuxt Auth
@@ -105,7 +109,9 @@ useHead({
       Buka konfigurasi Nuxt Js dan cari dimana Anda menyimpan konfigurasi
       variable auth. Contohnya seperti ini:
     </p>
-    <pre class="w-full p-2 bg-white shadow-md dark:bg-dark-medium">
+    <pre
+      class="w-full p-2 bg-white shadow-md dark:bg-dark-medium overflow-x-auto"
+    >
    <code>
 auth: {
     redirect: {
@@ -294,4 +300,5 @@ auth: {
       menggunakan nuxt auth.
     </p>
   </div>
+  <FooterPost :references="references" />
 </template>

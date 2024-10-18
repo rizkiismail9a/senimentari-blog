@@ -26,8 +26,11 @@ const changeLanguages = (lang: "id" | "en") => {
     >
       <div id="navbar-logo" class="">
         <div class="flex flex-col justify-start">
-          <span>senimentari_</span>
-          <span>blog</span>
+          <img
+            src="/images/logo-blog.webp"
+            alt="senimentari blog"
+            class="md:w-16 w-12"
+          />
         </div>
       </div>
       <div
