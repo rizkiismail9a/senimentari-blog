@@ -22,7 +22,7 @@ defineProps<{
 
     <h4 class="font-bold">
       <NuxtLink to="/post/refresh-token-scheme">
-        {{ $t(title) }}
+        {{ title }}
       </NuxtLink>
     </h4>
 

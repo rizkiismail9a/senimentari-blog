@@ -5,7 +5,7 @@ export const aboutPageId = {
   mission: "Misi Kami",
   "about-author": "Tentang Penulis",
   background:
-    "Selama perjalanan saya dalam belajar pengembangan software, saya sering dihadapkan dengan berbagai masalah, mulai dari error, bug, hingga konfigurasi yang membingungkan. Sayangnya, sumber daya yang membahas solusi masalah-masalah tersebut seringkali sulit ditemukan, terutama dalam bahasa Indonesia. Pengalaman saya dalam mencari solusi untuk masalah seperti konfigurasi Nuxt Auth, penggunaan i18n, atau bahkan cara menggunakan class Tailwind secara dinamis sangat terbatas.",
+    "Selama perjalanan saya dalam belajar pengembangan software, saya sering dihadapkan dengan berbagai masalah, mulai dari error, bug, hingga konfigurasi yang membingungkan. Sayangnya, sumber daya yang membahas solusi masalah-masalah tersebut seringkali sulit ditemukan, terutama dalam bahasa Indonesia. Pengalaman saya dalam mencari solusi untuk masalah seperti konfigurasi Nuxt Auth, penggunaan i18n, atau bahkan cara menggunakan class Tailwind secara dinamis sangat terbatas pada saat itu.",
   "reason-of-web":
     "Website ini hadir untuk menjawab kebutuhan para developer pemula yang mungkin mengalami kesulitan yang sama seperti yang saya alami. Saya ingin berbagi pengalaman, tips, trik, dan solusi kreatif yang saya temukan selama belajar coding. Dengan tujuan memudahkan developer pemula dalam memahami dan menyelesaikan masalah yang sering ditemui, khususnya bagi mereka yang mencari panduan dalam bahasa Indonesia.",
   "practical-solution": "Solusi Praktis",
