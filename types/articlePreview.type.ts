@@ -10,4 +10,5 @@ export type ArticlePreview = {
   };
   preview: string;
   tags: string[];
+  path: string;
 };

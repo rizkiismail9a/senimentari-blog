@@ -57,6 +57,12 @@ const references = ref<string[]>([
   "https://www.wolfpack-digital.com/blogposts/nuxt-auth-refresh-token-authentication-in-your-nuxt-app",
   "https://auth.nuxtjs.org/schemes/refresh/",
 ]);
+const moreContente = ref<{ title: string; link: string }[]>([
+  {
+    title: "Cara Membuat Tombol Subscribe Notifikasi dengan OneSignal",
+    link: "/post/custom-onesignal-button",
+  },
+]);
 </script>
 
 <template>
@@ -300,5 +306,5 @@ auth: {
       menggunakan nuxt auth.
     </p>
   </div>
-  <FooterPost :references="references" />
+  <FooterPost :references="references" :more="moreContente" />
 </template>

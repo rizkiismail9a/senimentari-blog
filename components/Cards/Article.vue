@@ -6,6 +6,7 @@ defineProps<{
   preview: string;
   credit: string;
   tags: string[];
+  path: string;
 }>();
 </script>
 
@@ -21,7 +22,7 @@ defineProps<{
     />
 
     <h4 class="font-bold">
-      <NuxtLink to="/post/refresh-token-scheme">
+      <NuxtLink :to="path">
         {{ title }}
       </NuxtLink>
     </h4>
@@ -40,10 +41,11 @@ defineProps<{
       id="preview"
       class="text-xs line-clamp-5 text-justify"
     ></div>
-    <div
+    <NuxtLink
+      :to="path"
       class="text-xs cursor-pointer hover:underline text-blue dark:text-white"
     >
       Baca selengkapnya...
-    </div>
+    </NuxtLink>
   </div>
 </template>

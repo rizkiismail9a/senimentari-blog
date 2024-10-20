@@ -75,6 +75,7 @@ const findArticle = () => {
           :title="article.title"
           :credit="article.image.credit"
           :tags="article.tags"
+          :path="article.path"
         />
       </template>
       <template v-else>
@@ -87,6 +88,7 @@ const findArticle = () => {
           :preview="article.preview"
           :title="article.title"
           :tags="article.tags"
+          :path="article.path"
         />
       </template>
     </section>
