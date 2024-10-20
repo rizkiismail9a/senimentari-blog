@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   references: string[];
+  more?: { title: string; link: string }[];
 }>();
 </script>
 
@@ -24,8 +25,13 @@ defineProps<{
         <div class="h-[2px] w-full bg-black dark:bg-white rounded-sm" />
         <h4 class="font-semibold text-lg">Baca lagi</h4>
         <div class="flex gap-4 items-center">
-          <NuxtLink to="/" class="hover:underline text-blue">
-            Temukan lebih banyak
+          <NuxtLink
+            v-for="content in more"
+            :key="content.link"
+            :to="content.link"
+            class="hover:underline text-blue"
+          >
+            {{ content.title }}
           </NuxtLink>
         </div>
       </section>
