@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   // },
   pages: true,
   css: ["~/assets/css/main.css"],
-  modules: ["@vueuse/nuxt", "@nuxtjs/i18n", "nuxt-aos"],
+  modules: ["@vueuse/nuxt", "@nuxtjs/i18n", "nuxt-aos", "@vite-pwa/nuxt"],
   i18n: {
     vueI18n: "./i18n.config.ts",
   },
@@ -136,6 +136,35 @@ export default defineNuxtConfig({
           content: "https://senimentari-blog.vercel.app/images/logo-blog.webp",
         },
       ],
+    },
+  },
+  pwa: {
+    manifest: {
+      name: "senimentari blog",
+      short_name: "senimentari blog",
+      theme_color: "#ffffff",
+      description:
+        "Aplikasi penyaji tips, trik, dan solusi inovatif untuk mengatasi masalah bug dan konfigurasi dalam pengembangan software. Didesain khusus untuk developer pemula yang ingin belajar lebih mudah dan efisien.",
+      start_url: "/",
+      icons: [
+        {
+          src: "image/android-chrome-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+        },
+        {
+          src: "image/android-chrome-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+        },
+      ],
+    },
+    workbox: {
+      navigateFallback: "/",
+    },
+    devOptions: {
+      enabled: true,
+      type: "module",
     },
   },
 });
