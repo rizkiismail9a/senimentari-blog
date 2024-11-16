@@ -8,7 +8,7 @@ defineProps<{
 <template>
   <footer>
     <div
-      class="w-full max-w-[900px] mx-auto flex flex-col gap-8 items-start pt-10 pb-10 px-4"
+      class="w-full max-w-[900px] mx-auto flex flex-col gap-8 items-start pt-10 pb-10 px-4 overflow-auto"
     >
       <section class="w-full">
         <div class="h-[2px] w-full bg-black dark:bg-white rounded-sm" />
@@ -24,7 +24,7 @@ defineProps<{
       <section class="w-full">
         <div class="h-[2px] w-full bg-black dark:bg-white rounded-sm" />
         <h4 class="font-semibold text-lg">Baca lagi</h4>
-        <div class="flex gap-4 items-center">
+        <div class="flex flex-col gap-1">
           <NuxtLink
             v-for="content in more"
             :key="content.link"
