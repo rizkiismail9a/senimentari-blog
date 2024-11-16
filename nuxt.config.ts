@@ -2,9 +2,9 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   // devtools: { enabled: true },
-  // devServer: {
-  //   port: 8000,
-  // },
+  devServer: {
+    port: 8000,
+  },
   pages: true,
   css: ["~/assets/css/main.css"],
   modules: ["@vueuse/nuxt", "@nuxtjs/i18n", "nuxt-aos", "@vite-pwa/nuxt"],
@@ -147,6 +147,16 @@ export default defineNuxtConfig({
         "Aplikasi penyaji tips, trik, dan solusi inovatif untuk mengatasi masalah bug dan konfigurasi dalam pengembangan software. Didesain khusus untuk developer pemula yang ingin belajar lebih mudah dan efisien.",
       start_url: "/",
       icons: [
+        {
+          src: "image/favicon-16x16.png",
+          sizes: "16x16",
+          type: "image/png",
+        },
+        {
+          src: "image/favicon-32x32.png",
+          sizes: "32x32",
+          type: "image/png",
+        },
         {
           src: "image/android-chrome-512x512.png",
           sizes: "512x512",
