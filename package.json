@@ -16,7 +16,10 @@
     "nuxt": "^3.13.0",
     "nuxt-aos": "^1.2.5",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "workbox-core": "^7.3.0",
+    "workbox-precaching": "^7.3.0",
+    "workbox-routing": "^7.3.0"
   },
   "devDependencies": {
     "@vite-pwa/nuxt": "^0.10.5",
