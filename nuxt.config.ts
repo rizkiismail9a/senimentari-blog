@@ -39,6 +39,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      title: "senimentari blog | tips dan trik software development",
       htmlAttrs: {
         lang: "id",
       },
@@ -77,7 +78,8 @@ export default defineNuxtConfig({
         { charset: "utf-8" },
         {
           name: "viewport",
-          content: "width=device-width, initial-scale=1.0",
+          content:
+            "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
         },
         {
           name: "description",
@@ -87,7 +89,7 @@ export default defineNuxtConfig({
         {
           name: "keywords",
           content:
-            "javascript, website, developer, pemula, bug, error, cara, trik",
+            "javascript, git, onesignal, tips, developer, pemula, bug, error, cara, trik",
         },
         {
           name: "author",
@@ -99,7 +101,7 @@ export default defineNuxtConfig({
         },
         {
           property: "og:title",
-          content: "senimentari blog: jurnal perjalanan belajar",
+          content: "senimentari blog | tips dan trik software development",
         },
         {
           property: "og:description",
@@ -124,7 +126,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:title",
-          content: "senimentari blog: jurnal perjalanan belajar",
+          content: "senimentari blog | tips dan trik software development",
         },
         {
           name: "twitter:description",
