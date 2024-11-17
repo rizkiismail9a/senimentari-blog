@@ -2,9 +2,9 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   // devtools: { enabled: true },
-  // devServer: {
-  //   port: 8000,
-  // },
+  devServer: {
+    port: 8000,
+  },
   pages: true,
   css: ["~/assets/css/main.css"],
   modules: ["@vueuse/nuxt", "@nuxtjs/i18n", "nuxt-aos", "@vite-pwa/nuxt"],
@@ -39,6 +39,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      title: "senimentari blog | tips dan trik software development",
       htmlAttrs: {
         lang: "id",
       },
@@ -77,7 +78,8 @@ export default defineNuxtConfig({
         { charset: "utf-8" },
         {
           name: "viewport",
-          content: "width=device-width, initial-scale=1.0",
+          content:
+            "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
         },
         {
           name: "description",
@@ -87,7 +89,7 @@ export default defineNuxtConfig({
         {
           name: "keywords",
           content:
-            "javascript, website, developer, pemula, bug, error, cara, trik",
+            "javascript, git, onesignal, tips, developer, pemula, bug, error, cara, trik",
         },
         {
           name: "author",
@@ -99,7 +101,7 @@ export default defineNuxtConfig({
         },
         {
           property: "og:title",
-          content: "senimentari blog: jurnal perjalanan belajar",
+          content: "senimentari blog | tips dan trik software development",
         },
         {
           property: "og:description",
@@ -124,7 +126,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:title",
-          content: "senimentari blog: jurnal perjalanan belajar",
+          content: "senimentari blog | tips dan trik software development",
         },
         {
           name: "twitter:description",
@@ -147,6 +149,16 @@ export default defineNuxtConfig({
         "Aplikasi penyaji tips, trik, dan solusi inovatif untuk mengatasi masalah bug dan konfigurasi dalam pengembangan software. Didesain khusus untuk developer pemula yang ingin belajar lebih mudah dan efisien.",
       start_url: "/",
       icons: [
+        {
+          src: "image/favicon-16x16.png",
+          sizes: "16x16",
+          type: "image/png",
+        },
+        {
+          src: "image/favicon-32x32.png",
+          sizes: "32x32",
+          type: "image/png",
+        },
         {
           src: "image/android-chrome-512x512.png",
           sizes: "512x512",

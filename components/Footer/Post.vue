@@ -6,16 +6,20 @@ defineProps<{
 </script>
 
 <template>
-  <footer>
+  <footer class="max-w-[900px] !w-full overflow-hidden">
     <div
-      class="w-full max-w-[900px] mx-auto flex flex-col gap-8 items-start pt-10 pb-10 px-4"
+      class="!w-full max-w-[900px] flex flex-col gap-8 items-start pt-10 pb-10 md:px-4 px-1 !overflow-hidden"
     >
       <section class="w-full">
         <div class="h-[2px] w-full bg-black dark:bg-white rounded-sm" />
         <h4 class="font-semibold text-lg">Referensi:</h4>
-        <ol class="list-decimal ml-5">
+        <ol class="ml-5">
           <li v-for="(ref, index) in references" :key="index">
-            <a class="hover:underline text-blue" :href="ref" target="_blank">
+            <a
+              class="hover:underline text-blue text-wrap break-words w-full"
+              :href="ref"
+              target="_blank"
+            >
               {{ ref }}
             </a>
           </li>
@@ -24,12 +28,12 @@ defineProps<{
       <section class="w-full">
         <div class="h-[2px] w-full bg-black dark:bg-white rounded-sm" />
         <h4 class="font-semibold text-lg">Baca lagi</h4>
-        <div class="flex gap-4 items-center">
+        <div class="flex flex-col gap-1">
           <NuxtLink
             v-for="content in more"
             :key="content.link"
             :to="content.link"
-            class="hover:underline text-blue"
+            class="hover:underline text-blue text-wrap break-words w-full"
           >
             {{ content.title }}
           </NuxtLink>
@@ -57,7 +61,9 @@ defineProps<{
         </div>
       </section>
       <section class="w-full">
-        <div class="text-center">&copy; Yuri S. Ostrovsky 2024</div>
+        <div class="text-center">
+          &copy; <author>Yuri S. Ostrovsky</author> 2024
+        </div>
       </section>
     </div>
   </footer>

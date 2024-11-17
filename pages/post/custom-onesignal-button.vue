@@ -57,7 +57,7 @@ const tags = ref<string[]>(["notification", "onesignal"]);
 const references = ref<string[]>([
   "https://documentation.onesignal.com/docs/device-user-model-web-sdk-mapping",
 ]);
-const moreContente = ref<{ title: string; link: string }[]>([
+const moreContent = ref<{ title: string; link: string }[]>([
   {
     title: "Cara Menggunakan Skema Refresh pada Nuxt Auth",
     link: "/post/refresh-token-scheme",
@@ -257,7 +257,7 @@ const moreContente = ref<{ title: string; link: string }[]>([
       Demikian cara membuat tombol kustomisasi onesignal.
     </p>
   </div>
-  <FooterPost :references="references" :more="moreContente" />
+  <FooterPost :references="references" :more="moreContent" />
 </template>
 
 <style scoped></style>
