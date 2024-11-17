@@ -150,16 +150,6 @@ export default defineNuxtConfig({
       start_url: "/",
       icons: [
         {
-          src: "image/favicon-16x16.png",
-          sizes: "16x16",
-          type: "image/png",
-        },
-        {
-          src: "image/favicon-32x32.png",
-          sizes: "32x32",
-          type: "image/png",
-        },
-        {
           src: "image/android-chrome-512x512.png",
           sizes: "512x512",
           type: "image/png",
@@ -173,7 +163,10 @@ export default defineNuxtConfig({
     },
     workbox: {
       navigateFallback: "/",
+      importScripts: ["/sw.js"],
+      globPatterns: ["**/*.{js,css,html,png,svg,jpg,woff2}"],
     },
+    strategies: "generateSW",
     devOptions: {
       enabled: true,
       type: "module",
