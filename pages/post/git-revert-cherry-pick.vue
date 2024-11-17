@@ -1,7 +1,63 @@
 <script setup lang="ts">
-const tags = ref<string[]>(["git", "tips"]);
+useHead({
+  meta: [
+    {
+      name: "description",
+      content:
+        "Pelajari cara menghapus dan mengembalikan commit spesifik di Git menggunakan perintah revert dan cherry-pick. Panduan praktis untuk mempermudah manajemen versi proyek Anda.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Git, revert, cherry-pick, tutorial git, menghapus commit, mengembalikan commit, tips git",
+    },
+    {
+      property: "og:title",
+      content: "Tips GIT: Cara Menghapus dan Mengembalikan Commit Spesifik",
+    },
+    {
+      property: "og:description",
+      content:
+        "Panduan lengkap untuk menggunakan revert dan cherry-pick dalam menghapus dan mengembalikan commit spesifik di Git.",
+    },
+    {
+      property: "og:type",
+      content: "article",
+    },
+    {
+      property: "og:url",
+      content:
+        "https://senimentari-blog.vercel.app/post/git-revert-cherry-pick",
+    },
+    {
+      property: "og:image",
+      content: "https://senimentari-blog.vercel.app/images/cherry.jpg",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "Tips GIT: Cara Menghapus dan Mengembalikan Commit Spesifik",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Pelajari cara menghapus dan mengembalikan commit spesifik di Git menggunakan perintah revert dan cherry-pick.",
+    },
+    {
+      name: "twitter:image",
+      content: "https://senimentari-blog.vercel.app/images/cherry.jpg",
+    },
+  ],
+});
+
+const tags = ref<string[]>(["git", "version control"]);
 const references = ref<string[]>([
   "https://documentation.onesignal.com/docs/device-user-model-web-sdk-mapping",
+  "https://www.geeksforgeeks.org/git-cherry-pick/",
+  "https://betterprogramming.pub/git-cherry-pick-merge-only-the-selected-commits-in-git-cli-and-gui-99259de728e3",
 ]);
 const moreContent = ref<{ title: string; link: string }[]>([
   {
@@ -40,9 +96,10 @@ const moreContent = ref<{ title: string; link: string }[]>([
       Mengambil versi code di masa lalu dengan git revert dan cherry-pick
     </h2>
     <img
-      src="/images/Git.svg"
+      src="/images/cherry.jpg"
       alt="GIT Logo"
       class="w-[700px] rounded-sm mx-auto bg-white"
+      title="Photy by Quaritsch Photography"
     />
     <p class="text-base text-justify">
       Pernahkan teman-teman mendapatkan keadaan dimana teman-teman membuat
