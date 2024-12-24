@@ -62,7 +62,7 @@ defineProps<{
       </section>
       <section class="w-full">
         <div class="text-center">
-          &copy; <author>Yuri S. Ostrovsky</author> 2024
+          &copy; <span>Yuri S. Ostrovsky</span> 2024
         </div>
       </section>
     </div>
