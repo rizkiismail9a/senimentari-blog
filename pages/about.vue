@@ -36,6 +36,7 @@ const scrollToView = (target: string) => {
 </script>
 
 <template>
+  <Navbar :use-language="true" />
   <div class="flex gap-9 flex-row-reverse py-4">
     <div
       id="sidebar-right"

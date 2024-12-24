@@ -72,6 +72,7 @@ const moreContent = ref<{ title: string; link: string }[]>([
 </script>
 
 <template>
+  <Navbar />
   <div
     id="git-revert-cherry-pick"
     class="w-full max-w-[900px] mx-auto flex flex-col gap-5 items-start pt-10 pb-10 px-4"

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+defineProps<{
+  useLanguage?: Boolean;
+}>();
+
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 const { setLocale } = useI18n();
@@ -64,7 +68,7 @@ const changeLanguages = (lang: "id" | "en") => {
           } text-lg cursor-pointer`"
         ></i>
 
-        <div id="lang-dropdown" class="relative">
+        <div v-if="useLanguage" id="lang-dropdown" class="relative">
           <i
             class="fa-solid fa-globe cursor-pointer text-lg"
             @click="toggleLangOption()"
