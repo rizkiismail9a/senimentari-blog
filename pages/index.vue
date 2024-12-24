@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { ArticlePreview } from "~/types/articlePreview.type";
 import { articles } from "~/public/articles/previews";
+import Navbar from "~/components/Navbar/Navbar.vue";
 
 const searchInput = ref<string>("");
 const isSearching = ref<boolean>(false);
@@ -29,6 +30,7 @@ const findArticle = () => {
 </script>
 
 <template>
+  <Navbar :use-language="true" />
   <div class="flex flex-col items-center gap-4">
     <section id="header" class="w-full flex flex-col items-center gap-4">
       <h1 data-aos="fade-right" class="font-extrabold text-center text-[36px]">
