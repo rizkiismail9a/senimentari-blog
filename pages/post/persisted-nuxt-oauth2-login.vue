@@ -2,6 +2,62 @@
 import Navbar from "~/components/Navbar/Navbar.vue";
 import Header from "~/components/Post/Header.vue";
 
+useHead({
+  meta: [
+    {
+      name: "description",
+      content:
+        "Pelajari cara mengintegrasikan skema OAuth2 dengan modul Nuxt/Auth untuk autentikasi aplikasi Anda. Panduan lengkap, jelas, dan mudah dipahami.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Nuxt Auth, OAuth2, cara menggunakan Nuxt Auth, skema OAuth2, autentikasi Nuxt, Nuxt.js tutorial, OAuth2 Nuxt/Auth, modul Nuxt Auth",
+    },
+    {
+      property: "og:title",
+      content:
+        "Cara Menggunakan Skema OAuth2 dengan Modul Nuxt/Auth - Panduan Lengkap",
+    },
+    {
+      property: "og:description",
+      content:
+        "Pelajari cara mengintegrasikan skema OAuth2 dengan modul Nuxt/Auth untuk autentikasi aplikasi Anda. Panduan lengkap, jelas, dan mudah dipahami.",
+    },
+    {
+      property: "og:type",
+      content: "article",
+    },
+    {
+      property: "og:url",
+      content:
+        "https://senimentari-blog.vercel.app/post/persisted-nuxt-oauth2-login",
+    },
+    {
+      property: "og:image",
+      content: "https://senimentari-blog.vercel.app/images/nuxt-auth-logo.png",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content:
+        "Cara Menggunakan Skema OAuth2 dengan Modul Nuxt/Auth - Panduan Lengkap",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Pelajari cara mengintegrasikan skema OAuth2 dengan modul Nuxt/Auth untuk autentikasi aplikasi Anda. Panduan lengkap, jelas, dan mudah dipahami.",
+    },
+    {
+      name: "twitter:image",
+      content: "https://senimentari-blog.vercel.app/images/nuxt-auth-logo.png",
+    },
+  ],
+});
+
 const tags = ref<string[]>(["google", "oauth2", "nuxt/auth"]);
 const date = ref<string>("Rabu, 25 Desember 2024");
 const title = ref<string>(

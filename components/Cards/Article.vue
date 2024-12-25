@@ -36,11 +36,9 @@ defineProps<{
         {{ tag }}
       </span>
     </div>
-    <div
-      v-html="$t(preview)"
-      id="preview"
-      class="text-xs line-clamp-5 text-justify"
-    ></div>
+    <div id="preview" class="text-xs line-clamp-5 text-justify">
+      {{ preview }}
+    </div>
     <NuxtLink
       :to="path"
       class="text-xs cursor-pointer hover:underline text-blue dark:text-white"
