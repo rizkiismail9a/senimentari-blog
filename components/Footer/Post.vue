@@ -6,14 +6,14 @@ defineProps<{
 </script>
 
 <template>
-  <footer class="max-w-[900px] !w-full overflow-hidden">
+  <footer class="max-w-[900px] !w-full overflow-hidden mx-auto">
     <div
       class="!w-full max-w-[900px] flex flex-col gap-8 items-start pt-10 pb-10 md:px-4 px-1 !overflow-hidden"
     >
       <section class="w-full">
         <div class="h-[2px] w-full bg-black dark:bg-white rounded-sm" />
         <h4 class="font-semibold text-lg">Referensi:</h4>
-        <ol class="ml-5">
+        <ol>
           <li v-for="(ref, index) in references" :key="index">
             <a
               class="hover:underline text-blue text-wrap break-words w-full"
@@ -62,7 +62,7 @@ defineProps<{
       </section>
       <section class="w-full">
         <div class="text-center">
-          &copy; <author>Yuri S. Ostrovsky</author> 2024
+          &copy; <span>Yuri S. Ostrovsky</span> 2024
         </div>
       </section>
     </div>

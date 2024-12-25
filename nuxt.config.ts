@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   // devtools: { enabled: true },
   devServer: {
-    port: 8000,
+    port: 8080,
   },
   pages: true,
   css: ["~/assets/css/main.css"],
@@ -166,7 +166,7 @@ export default defineNuxtConfig({
       importScripts: ["/sw.js"],
       globPatterns: ["**/*.{js,css,html,png,svg,jpg,woff2}"],
     },
-    strategies: "generateSW",
+    strategies: "injectManifest",
     devOptions: {
       enabled: true,
       type: "module",

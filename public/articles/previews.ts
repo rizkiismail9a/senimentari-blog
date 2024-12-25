@@ -41,4 +41,17 @@ export const articles = ref<ArticlePreview[]>([
     tags: ["git", "version control"],
     path: "/post/git-revert-cherry-pick",
   },
+  {
+    id: "article-4",
+    title: "Cara Mengguanakan Skema Oauth2 dengan Modul Nuxt/Auth",
+    image: {
+      path: "nuxt-auth-logo.png",
+      alt: "logo nuxt auth",
+      credit: "Logo Nuxt Auth",
+    },
+    preview:
+      "Pernahkah teman-teman mencoba membuat fitur autentikasi dengan Oauth2 melalui library pihak ketiga? Apalagi, jika teman-teman bekerja dengan nuxt2 atau perusahaan tempat teman-teman bekerja menggunakan nuxt2. Teman-teman sangat mungkin menggunakan sebuah library bernama nuxt/auth.",
+    tags: ["google", "oauth2", "nuxt/auth"],
+    path: "/post/persisted-nuxt-oauth2-login",
+  },
 ]);
