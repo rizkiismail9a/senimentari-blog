@@ -71,15 +71,7 @@ const moreContent = ref<{ title: string; link: string }[]>([
     id="detail-wrapper"
     class="w-full max-w-[900px] mx-auto flex flex-col gap-5 items-start pt-10 pb-10 px-4"
   >
-    <section id="tags" class="mx-auto">
-      <span
-        v-for="tag in tags"
-        :key="tag"
-        class="bg-green-500 text-white inline-block mr-1 py-1 px-3 rounded-lg text-xs w-fit"
-      >
-        {{ tag }}
-      </span>
-    </section>
+    <PostTags :tags="tags" />
     <section class="text-base text-gray-600 dark:text-gray-300 mx-auto">
       Selasa, 20 Oktober 2024
     </section>
