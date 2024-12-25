@@ -30,7 +30,7 @@ const scrollToView = (target: string) => {
   document.getElementById(target)?.scrollIntoView({
     behavior: "smooth",
     block: "center",
-    inline: "nearest",
+    inline: "center",
   });
 };
 </script>
