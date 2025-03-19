@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { ArticlePreview } from "~/types/articlePreview.type";
-import { articles } from "~/public/articles/previews";
 import Navbar from "~/components/Navbar/Navbar.vue";
+import { articles } from "~/public/articles/previews";
+import type { ArticlePreview } from "~/types/articlePreview.type";
 
 const searchInput = ref<string>("");
 const isSearching = ref<boolean>(false);
@@ -34,11 +34,14 @@ const findArticle = () => {
   <div class="flex flex-col items-center gap-4">
     <section id="header" class="w-full flex flex-col items-center gap-4">
       <h1 data-aos="fade-right" class="font-extrabold text-center text-[36px]">
-        {{ $t("home-header") }}
+        senimentari blog
       </h1>
       <div data-aos="fade-left" class="max-w-[700px] w-full mx-auto">
         <h3 class="font-medium text-center">
-          {{ $t("home-header-desc") }}
+          Website ini menyajikan tips, trik, dan solusi inovatif untuk mengatasi
+          masalah bug dan konfigurasi dalam pengembangan software. Didesain
+          khusus untuk developer pemula yang ingin belajar lebih mudah dan
+          efisien.
         </h3>
       </div>
     </section>
@@ -55,7 +58,7 @@ const findArticle = () => {
             autocomplete="off"
             class="bg-transparent focus:outline-none focus:ring-0 border-none p-1 w-full dark:text-white"
             name="search"
-            :placeholder="$t('search-placeholder')"
+            placeholder="cari judul atau tag artikel"
             type="text"
           />
         </div>
