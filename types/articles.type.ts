@@ -11,6 +11,7 @@ export type ArticlePost = {
 };
 
 export type Article = ArticlePost & {
+  _id: string;
   createdAt: Date;
   references: string[];
 };

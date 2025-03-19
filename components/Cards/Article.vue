@@ -16,7 +16,7 @@ defineProps<{
   >
     <img
       class="w-full h-[200px] object-cover overflow-hidden rounded-t-sm"
-      :src="`/images/${image}`"
+      :src="`${image}`"
       :alt="imageAlt"
       :title="credit"
     />

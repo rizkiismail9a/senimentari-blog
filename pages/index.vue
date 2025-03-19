@@ -1,11 +1,22 @@
 <script setup lang="ts">
 import Navbar from "~/components/Navbar/Navbar.vue";
-import { articles } from "~/public/articles/previews";
-import type { ArticlePreview } from "~/types/articlePreview.type";
+// import { articles } from "~/public/articles/previews";
+import type { Article } from "~/types/articles.type";
+
+const { data: articles, error } = await useAsyncData(
+  "articles",
+  (): Promise<Article[]> => {
+    try {
+      return $fetch("/api/articles");
+    } catch (err) {
+      throw new Error(`Gagal fetch data ${error}`);
+    }
+  }
+);
 
 const searchInput = ref<string>("");
 const isSearching = ref<boolean>(false);
-const filteredArticle = ref<ArticlePreview[]>([]);
+const filteredArticle = ref<Article[]>([]);
 
 /**
  * Search the articles based on title and tags
@@ -14,8 +25,10 @@ const findArticle = () => {
   isSearching.value = true;
   const searchValue = searchInput.value.toLowerCase();
 
+  if (!articles.value?.length) return;
+
   if (!searchValue.length) {
-    filteredArticle.value = articles.value;
+    filteredArticle.value = articles.value as Article[];
     isSearching.value = false;
     return;
   }
@@ -73,27 +86,27 @@ const findArticle = () => {
       <template v-if="isSearching">
         <CardsArticle
           v-for="article in filteredArticle"
-          :key="article.id"
-          :image="article.image.path"
-          :image-alt="article.image.alt"
-          :preview="article.preview"
+          :key="article._id"
+          :credit="article.thumbnail.credit"
+          :image="article.thumbnail.src"
+          :image-alt="article.title"
+          :preview="article.content[0].text!"
           :title="article.title"
-          :credit="article.image.credit"
           :tags="article.tags"
-          :path="article.path"
+          :path="'/new-post/' + article.slug"
         />
       </template>
       <template v-else>
         <CardsArticle
           v-for="article in articles"
-          :key="article.id"
-          :credit="article.image.credit"
-          :image="article.image.path"
-          :image-alt="article.image.alt"
-          :preview="article.preview"
+          :key="article._id"
+          :credit="article.thumbnail.credit"
+          :image="article.thumbnail.src"
+          :image-alt="article.title"
+          :preview="article.content[0].text!"
           :title="article.title"
           :tags="article.tags"
-          :path="article.path"
+          :path="'/new-post/' + article.slug"
         />
       </template>
     </section>
