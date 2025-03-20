@@ -20,7 +20,7 @@ const ArticleSchema = new Schema<Article>(
       {
         type: {
           type: String,
-          enum: ["paragraph", "image", "code"],
+          enum: ["paragraph", "image", "code", "sub-chapter"],
           required: true,
         },
         text: { type: String },

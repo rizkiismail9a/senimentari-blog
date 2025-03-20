@@ -8,16 +8,16 @@ export type ArticlePost = {
     credit: string;
   };
   content: ContentBlock[];
+  references: string[];
 };
 
 export type Article = ArticlePost & {
   _id: string;
   createdAt: Date;
-  references: string[];
 };
 
 export type ContentBlock = {
-  type: "paragraph" | "image" | "code";
+  type: "paragraph" | "image" | "code" | "sub-chapter";
   text?: string;
   src?: string;
   alt?: string;

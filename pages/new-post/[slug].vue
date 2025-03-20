@@ -1,19 +1,12 @@
 <script setup lang="ts">
-import { type ContentBlock, type Article } from "~/types/articles.type";
+import { type Article } from "~/types/articles.type";
 
 // Library or package
 const route = useRoute();
 
 // Async data
-const { data: article, error } = await useAsyncData(
-  "article",
-  (): Promise<Article> => {
-    try {
-      return $fetch(`/api/articles/${route.params.slug}`);
-    } catch (err) {
-      throw new Error(`Gagal memuat data: ${error}`);
-    }
-  }
+const { data: article, error } = await useAsyncData("article", () =>
+  $fetch<Article>(`/api/articles/${route.params.slug}`)
 );
 
 useHead({
@@ -173,12 +166,17 @@ const moreContent = ref<{ title: string; link: string }[]>([
           :alt="item.alt"
           class="max-w-[700px] w-full rounded-sm mx-auto bg-white"
         />
-        <div
-          v-if="item.type === 'code'"
-          class="w-full h-fit p-2 bg-white shadow-md dark:bg-dark-medium overflow-x-auto"
+        <h3
+          v-if="item.type === 'sub-chapter'"
+          class="w-full font-bold text-2xl"
         >
-          <code> {{ item.text }} </code>
-        </div>
+          {{ item.text }}
+        </h3>
+        <pre
+          v-if="item.type === 'code'"
+          v-html="item.text"
+          class="w-full h-fit p-2 bg-white shadow-md dark:bg-dark-medium overflow-x-auto"
+        ></pre>
       </div>
     </div>
 

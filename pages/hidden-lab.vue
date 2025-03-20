@@ -12,115 +12,176 @@ useHead({
 });
 
 const oneArticle = ref<ArticlePost>({
-  title:
-    "Tips GIT: Cara Menghapus dan Mengembalikan Commit Spesifik Dengan Revert dan Cherry-Pick",
-  tags: ["git", "version control"],
-  thumbnail: "/images/cherry.jpg",
-  slug: "git-revert-cherry-pick",
-  subTitle:
-    "Mengambil versi code di masa lalu dengan git revert dan cherry-pick",
+  title: "Cara Membuat Tombol Subscribe Notifikasi dengan OneSignal",
+  tags: ["notification", "onesignal"],
+  thumbnail: {
+    src: "/images/onesignal-logo.jpg",
+    credit: "",
+  },
+  references: [
+    "https://documentation.onesignal.com/docs/device-user-model-web-sdk-mapping",
+  ],
+  slug: "custom-onesignal-button",
+  subTitle: "Menyembunyikan tombol bawaan, membuat tombol baru",
   content: [
     {
       type: "paragraph",
-      text: "Pernahkan teman-teman mendapatkan keadaan dimana teman-teman membuat sebuah fitur yang sudah ready di development, tetapi suatu saat, teman-teman diminta menarik lagi fitur tersebut. Sayangnya, commit dari fitur itu sudah jauh sekali di belakang pembaharuan yang sudah teman-teman buat. Jika teman-teman menghapus fitur secara manual, itu akan memakan waktu dan berisiko merusak fitur yang lain atau “nyenggol” fitur yang sudah dibuat. Apa itu pernah terjadi? Atau justru sedang teman-teman alami?",
+      text: "OneSignal adalah salah satu tools digital yang sering digunakan oleh web developer untuk menambahkan fitur push notifikasi pada website buatan mereka. Agar mereka dapat dengan mudah memberitahu para pengguna aplikasi mereka jika ada fitur baru atau event tertentu.",
     },
     {
       type: "paragraph",
-      text: "Pada kejadian seperti itu, solusinya adalah dengan membatalkan commit git dari perubahan yang ingin ditarik. Jika commit itu masih satu HEAD di belakang, tentunya tinggal melakukan perintah:",
+      text: " Secara default, OneSignal sudah menambahkan tombol subscribe atau langganan bawaan mereka yang akan muncul secara otomatis saat kita menginstal plugin mereka pada aplikasi yang kita buat. Yaitu, sebuah tombol lonceng yang mengambang di sudut layar. Contohnya ada pada web lindungihutan.com berikut ini.",
+    },
+    {
+      type: "image",
+      text: "<code>git reset –soft HEAD~1</code>",
+    },
+    {
+      type: "paragraph",
+      src: "/images/lh.webp",
+      alt: "lindungihutan",
+    },
+
+    {
+      type: "paragraph",
+      text: " Namun, bagaimana jika kita ingin membuat tombol subscribe kita sendiri atau menyingkirkan tombol bawaan OneSignal itu? Tentu saja bisa. Berikut ini adalah caranya.",
+    },
+
+    {
+      type: "sub-chapter",
+      text: "1. Konfigurasi OneSignal",
+    },
+
+    {
+      type: "paragraph",
+      text: "Cara konfigurasi onesignal akan berbeda-beda, tergantung bahasa pemrograman yang Anda gunakan. Di sini, saya akan contohkan menggunakan Nuxt Js. Namun, yang pasti adalah Anda harus sudah punya API key dan appId dari website onesignal dan daftarkan url website Anda di sana.",
+    },
+
+    {
+      type: "paragraph",
+      text: "Pada nuxt.config.js, cari dimana Anda mengonfigurasi OneSignal.",
     },
     {
       type: "code",
-      text: "git reset –soft HEAD~1",
+      text: `<code>
+  oneSignal: {
+      cdn: true,
+      init: {
+        appId: “app-Id-anda”,
+        allowLocalhostAsSecureOrigin: true, // true jika Anda ingin menjalankan di localhost
+        notifyButton: {
+          enable: false, // Set menjadi false agar tombol bawaan OneSignal hilang
+        },
+        promptOptions: {
+          /* Customize your Subscription Prompt */
+          slidedown: {
+            enabled: true,
+            autoPrompt: false, // Nonaktifkan prompt otomatis
+            actionMessage:
+              "Kami akan mengirimkan notifikasi saat ada konten baru",
+            acceptButtonText: "Allow",
+            cancelButtonText: "Cancel",
+          },
+        },
+      },
+    },
+     </code>`,
     },
     {
       type: "paragraph",
-      text: "Namun, bagaimana jika commit-nya ada jauh di belakang? Contohnya seperti ini:",
+      text: "Untuk mematikan tombol bawaan OneSignal, kita hanya perlu set field notifyButton: { enabled: false }, dengan demikian tombol OneSignal akan hilang.",
+    },
+
+    {
+      type: "paragraph",
+      text: "Setelah itu, kustomisasi prompt slide yang akan kita gunakan untuk pemanggilan API OneSignal. Kenapa itu perlu? Kita akan bahas di bagian berikutnya.",
     },
     {
-      type: "image",
-      src: "/images/git-revert-1.png",
-      alt: "commit info",
+      type: "sub-chapter",
+      text: "2. Buat Fungsi Subscribe",
+    },
+
+    {
+      type: "paragraph",
+      text: "Kembali saya contohkan menggunakan Nuxt Js, ini bisa Anda sesuaikan dengan bahasa pemrograman yang Anda gunakan. Misal, saya memiliki tombol seperti ini.",
+    },
+
+    {
+      type: "code",
+      text: `
+      <code>
+        &lt;button class="message" @click="subscribeNotification"&gt;
+            Jangan lewatkan update terbaru kami! Subscribe, gratis!
+        &lt;/button&gt;
+      </code>`,
     },
     {
       type: "paragraph",
-      text: 'Berdasarakan grafik yang ditunjukkan Git Graph dari repositori saya, terdapat tujuh commit terakhir di branch dev. Kemudian, sebagai contoh, saya ingin menarik commit “add user json”, yang mana itu ada di belakang commit "add new helloWorld". Untuk melakukan itu, saya akan melakukan perintah:',
+      text: "Saat tombol diklik, ia akan menjalankan fungsi subscribeNotification di bawah ini.",
     },
     {
       type: "code",
-      text: "git reset –soft HEAD~1",
+      text: `
+      <code>
+    /**
+     * Subscribe to notification
+     */
+    async subscribeNotification () {
+      await window.OneSignal.push(() => {
+		 // Buka prompt perintah subscribe	
+        window.OneSignal.showSlidedownPrompt();
+      });
+
+
+      this.isSubscribeStatusChange();
+    },
+
+
+    /**
+     * Check for subscribtion status change
+     */
+    isSubscribeStatusChange() {
+      window.OneSignal.on("subscriptionChange", (subscribed) => {
+		// subscribed adalah bertipe data boolean
+        if (subscribed) {
+          // Jika subscribe berhasil, lakukan sesuatu
+        }
+      });
+    },
+
+    </code>
+      `,
     },
     {
       type: "paragraph",
-      text: " Commit hash adalah identifier unik yang diberikan oleh GIT setiap kali kita melakukan commit. Untuk mendapatkan commit hash,kita bisa melakukan perintah git log. Namun, dengan menggunakan Git Graph, saya tinggal mengklik commit target. Maka, informasi terkait commit tersebut, mulai dari commit hash, hingga file yang berubah akibat commit tersebut akan terlihat.",
-    },
-    {
-      type: "image",
-      src: "/images/add-user-json-commit.png",
-      alt: "commit info",
+      text: "Fungsi subscribeNotification berguna untuk membuka prompt atau popup bawaan dari OneSignal yang sudah kita konfigurasi pada nuxt.config.js sebelumnya. Jika gagal, pastika ad blocker Anda nonaktif atau coba bersihkan cache terlebih dahulu. Pada prompt tersebut, terdapat tombol Allow yang juga bisa Anda ubah labelnya sesuka hati. Saat, tombol Allow diklik, OneSignal akan melakukan request ke API mereka untuk menambahkan device user sebagai target push notifikasi.",
     },
     {
       type: "paragraph",
-      text: 'Berdasarkan gambar di atas, commit hash dari commit "add user json" adalah c5a035ae7bff92d28867f729e0ac2259466a4a10. Maka, perintah yang harus ditulis di terminal adalah',
+      text: "Mengapa harus menggunakan prompt? Ini karena API OneSignal hanya bisa dipanggil oleh element bawaan mereka. Anda bisa saja melakukan request API secara langsung dengan melakukan inspect element di browser, lalu ‘tembak’ API yang berguna untuk subscribe di sana. Namun, secara pribadi saya belum pernah melakukannya. Mengingat, halaman dokumentasi di OneSignal yang mendukung cara ini telah dihapus.",
+    },
+    {
+      type: "paragraph",
+      text: "Anda juga bisa mengecek apakah user sebelumnya sudah pernah subscribe sebelumnya atau tidak dengan menggunakan fungsi berikut ini.",
     },
     {
       type: "code",
-      text: "git revert c5a035ae7bff92d28867f729e0ac2259466a4a10",
+      text: `
+    <code>   
+    window.OneSignal.isPushNotificationsEnabled((isEnabled) => {
+        /**
+        *  isEnabled adalah bertipe data boolean
+      	*/
+        if (!isEnabled) {
+          // Jika belum subscribed, lakukan sesuatu
+        }
+    });
+    </code>
+      `,
     },
     {
       type: "paragraph",
-      text: "Namun, di sini, saya tidak akan menggunakan terminal, tetapi saya akan memanfaatkan fitur bawaan Git Graph. Saya cukup klik kanan dari commit target. Maka akan muncul pilihan seperti ini",
-    },
-    {
-      type: "image",
-      src: "/images/git-graph-menu.png",
-      alt: "git graph menu",
-    },
-    {
-      type: "paragraph",
-      text: "Pilih revert, lalu klik Yes. Maka revert telah selesai dan commit baru berlabel revert akan dibuat. Sekarang, file user.json telah hilang dari source code.",
-    },
-    {
-      type: "image",
-      src: "/images/git-revert-done.png",
-      alt: "git graph commit",
-    },
-    {
-      type: "paragraph",
-      text: "Seperti yang teman-teman lihat, saya memiliki branch baru yakni backup-dev. Ini adalah backup code jikalau suatu waktu commit yang saya revert tadi diperlukan kembali. Apabila waktu itu datang atau teman-teman perlu mengembalikan commit yang tadi dibuang, kita hanya perlu melakukan *cherry pick*",
-    },
-    {
-      type: "paragraph",
-      text: 'Saya akan kembali gunakan Git Graph. Klik kanan lagi pada commit yang tadi di-revert, BUKAN COMMIT REVERT, tetapi commit yang tadi di-revert, pada kasus ini, berarti commit "add user json" yang disebut di atas.',
-    },
-    {
-      type: "image",
-      src: "/images/cherry-pick-menu.png",
-      alt: "git graph menu",
-    },
-    {
-      type: "paragraph",
-      text: "Klik cherry pick, lalu klik Yes. Maka, file yang sebelumnya di-revert telah kembali.",
-    },
-    {
-      type: "image",
-      src: "/images/file-list.png",
-      alt: "git graph menu",
-    },
-    {
-      type: "paragraph",
-      text: "Jika teman-teman tidak menggunakan Git Graph, cukup jalankan perintah",
-    },
-    {
-      type: "code",
-      text: "git cherry-pick < commit hash >",
-    },
-    {
-      type: "paragraph",
-      text: "atau pada kasus ini",
-    },
-    {
-      type: "code",
-      text: "git cherry-pick c5a035ae7bff92d28867f729e0ac2259466a4a10",
+      text: "Demikian cara membuat tombol kustomisasi onesignal.",
     },
   ],
 });
