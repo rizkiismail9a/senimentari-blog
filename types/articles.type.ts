@@ -21,5 +21,4 @@ export type ContentBlock = {
   text?: string;
   src?: string;
   alt?: string;
-  title?: string;
 };

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ConfirmPassKey from "~/components/Dialog/ConfirmPassKey.vue";
 import type { ArticlePost } from "~/types/articles.type";
 
 useHead({
@@ -185,12 +186,15 @@ const oneArticle = ref<ArticlePost>({
     },
   ],
 });
+const openPasskeyDialog = ref<boolean>(true);
 
 const saveArticles = async () => {
   try {
+    const token = JSON.parse(sessionStorage.getItem("token") ?? "");
+
     await $fetch("/api/articles/create", {
       method: "POST",
-      body: oneArticle.value,
+      body: { ...oneArticle.value, token },
     });
   } catch (error) {
     console.error("gagal simpan artikel", error);
@@ -199,7 +203,9 @@ const saveArticles = async () => {
 </script>
 
 <template>
-  <div>
+  <ConfirmPassKey v-model:open="openPasskeyDialog" />
+
+  <div v-if="!openPasskeyDialog">
     <button @click="saveArticles">Simpan Article</button>
   </div>
 </template>

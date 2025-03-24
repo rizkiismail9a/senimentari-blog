@@ -3,15 +3,9 @@ import Navbar from "~/components/Navbar/Navbar.vue";
 // import { articles } from "~/public/articles/previews";
 import type { Article } from "~/types/articles.type";
 
-const { data: articles, error } = await useAsyncData(
+const { data: articles } = await useAsyncData(
   "articles",
-  (): Promise<Article[]> => {
-    try {
-      return $fetch("/api/articles");
-    } catch (err) {
-      throw new Error(`Gagal fetch data ${error}`);
-    }
-  }
+  (): Promise<Article[]> => $fetch("/api/articles")
 );
 
 const searchInput = ref<string>("");
@@ -43,7 +37,7 @@ const findArticle = () => {
 </script>
 
 <template>
-  <Navbar :use-language="true" />
+  <Navbar />
   <div class="flex flex-col items-center gap-4">
     <section id="header" class="w-full flex flex-col items-center gap-4">
       <h1 data-aos="fade-right" class="font-extrabold text-center text-[36px]">
