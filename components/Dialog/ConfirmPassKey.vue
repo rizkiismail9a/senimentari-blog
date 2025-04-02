@@ -43,7 +43,7 @@ const checkPassKey = () => {
       class="fixed z-50 top-0 left-0 backdrop-blur w-full h-full flex items-center justify-center"
     >
       <div
-        class="bg-slate-50 w-[400px] h-[400px] rounded-md shadow-md flex items-center justify-center p-4"
+        class="bg-slate-50 dark:bg-dark w-[400px] h-[400px] rounded-md shadow-md flex items-center justify-center p-4"
       >
         <form
           @submit.prevent="checkPassKey"
