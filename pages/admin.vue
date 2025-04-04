@@ -14,6 +14,8 @@ useHead({
 });
 
 const openPasskeyDialog = ref<boolean>(true);
+const btnText = ref<string>("Submit Artikel");
+const tags = ref<string>("");
 const newArticle = reactive<ArticlePost>({
   title: "",
   subTitle: "",
@@ -70,16 +72,24 @@ const addContent = (
 
 const saveArticles = async () => {
   try {
+    btnText.value = "Memuat...";
     const token = JSON.parse(sessionStorage.getItem("token") ?? "");
 
     if (token) {
+      const arrayTag = tags.value.split(",");
+      newArticle.tags = arrayTag;
+
       await $fetch("/api/articles/create", {
         method: "POST",
         body: { ...newArticle, token },
       });
+
+      window.location.reload();
     }
   } catch (error) {
     console.error("gagal simpan artikel", error);
+  } finally {
+    btnText.value = "Submit Artikel";
   }
 };
 </script>
@@ -116,6 +126,11 @@ const saveArticles = async () => {
         <InputText
           v-model="newArticle.thumbnail.credit"
           placeholder="Masukkan Kredit Thumbnail"
+        />
+
+        <InputText
+          v-model="tags"
+          placeholder="Masukkan Tag Artikel, pisahkan dengan koma. Ex: python,javascript"
         />
 
         <!-- referensi -->
@@ -217,7 +232,7 @@ const saveArticles = async () => {
       </div>
 
       <button class="border-none bg-green-500 text-white p-3 rounded-full">
-        Submit Artikel
+        {{ btnText }}
       </button>
     </form>
   </div>
