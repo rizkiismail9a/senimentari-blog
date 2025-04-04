@@ -5,6 +5,14 @@ export default defineNuxtConfig({
   devServer: {
     port: 8080,
   },
+  runtimeConfig: {
+    dbURI: process.env.MONGODB_URI,
+    jwtSecret: process.env.JWT_SECRET,
+
+    public: {
+      secretKey: process.env.Secret_Key,
+    },
+  },
   pages: true,
   css: ["~/assets/css/main.css"],
   modules: ["@vueuse/nuxt", "@nuxtjs/i18n", "nuxt-aos", "@vite-pwa/nuxt"],

@@ -5,19 +5,19 @@ defineProps<{
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
-const { setLocale } = useI18n();
-const showLangOption = ref<boolean>(false);
-const toggleLangOption = useToggle(showLangOption);
+// const { setLocale } = useI18n();
+// const showLangOption = ref<boolean>(false);
+// const toggleLangOption = useToggle(showLangOption);
 const showMobileNavbar = ref<boolean>(false);
 
-/**
- *
- * @param {string} lang The name of language target. It accepts 'id' and 'en'
- */
-const changeLanguages = (lang: "id" | "en") => {
-  setLocale(lang);
-  toggleLangOption();
-};
+// /**
+//  *
+//  * @param {string} lang The name of language target. It accepts 'id' and 'en'
+//  */
+// const changeLanguages = (lang: "id" | "en") => {
+//   setLocale(lang);
+//   toggleLangOption();
+// };
 </script>
 
 <template>
@@ -42,11 +42,14 @@ const changeLanguages = (lang: "id" | "en") => {
         class="md:flex hidden gap-4 flex-1 items-center leading-normal text-sm px-4"
       >
         <NuxtLink to="/" class="font-medium tracking-[0.24px]">
-          {{ $t("home") }}
+          Beranda
         </NuxtLink>
-        <NuxtLink to="/about" class="font-medium tracking-[0.24px]">
-          {{ $t("about") }}
-        </NuxtLink>
+        <a
+          href="https://mr-ismail-page.vercel.app/"
+          class="font-medium tracking-[0.24px]"
+        >
+          Tentang Kami
+        </a>
       </div>
 
       <div
@@ -68,13 +71,13 @@ const changeLanguages = (lang: "id" | "en") => {
           } text-lg cursor-pointer`"
         ></i>
 
-        <div v-if="useLanguage" id="lang-dropdown" class="relative">
+        <!-- <div v-if="useLanguage" id="lang-dropdown" class="relative">
           <i
             class="fa-solid fa-globe cursor-pointer text-lg"
             @click="toggleLangOption()"
           ></i>
 
-          <!-- Language option dropdown -->
+
           <div
             v-show="showLangOption"
             class="bg-white dark:bg-dark-medium w-[100px] h-fit text-sm shadow-md absolute z-10 right-3 md:right-0 text-dark dark:text-white p-2 rounded-md"
@@ -98,7 +101,7 @@ const changeLanguages = (lang: "id" | "en") => {
               </li>
             </ul>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div
@@ -109,9 +112,12 @@ const changeLanguages = (lang: "id" | "en") => {
       <NuxtLink to="/" class="font-medium tracking-[0.24px]">
         Beranda
       </NuxtLink>
-      <NuxtLink to="/about" class="font-medium tracking-[0.24px]">
+      <a
+        href="https://mr-ismail-page.vercel.app/"
+        class="font-medium tracking-[0.24px]"
+      >
         Tentang
-      </NuxtLink>
+      </a>
     </div>
   </nav>
 </template>

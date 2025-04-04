@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import type { ArticlePreview } from "~/types/articlePreview.type";
-import { articles } from "~/public/articles/previews";
 import Navbar from "~/components/Navbar/Navbar.vue";
+// import { articles } from "~/public/articles/previews";
+import type { Article } from "~/types/articles.type";
+
+const { data: articles } = await useAsyncData(
+  "articles",
+  (): Promise<Article[]> => $fetch("/api/articles")
+);
 
 const searchInput = ref<string>("");
 const isSearching = ref<boolean>(false);
-const filteredArticle = ref<ArticlePreview[]>([]);
+const filteredArticle = ref<Article[]>([]);
 
 /**
  * Search the articles based on title and tags
@@ -14,8 +19,10 @@ const findArticle = () => {
   isSearching.value = true;
   const searchValue = searchInput.value.toLowerCase();
 
+  if (!articles.value?.length) return;
+
   if (!searchValue.length) {
-    filteredArticle.value = articles.value;
+    filteredArticle.value = articles.value as Article[];
     isSearching.value = false;
     return;
   }
@@ -30,15 +37,18 @@ const findArticle = () => {
 </script>
 
 <template>
-  <Navbar :use-language="true" />
+  <Navbar />
   <div class="flex flex-col items-center gap-4">
     <section id="header" class="w-full flex flex-col items-center gap-4">
       <h1 data-aos="fade-right" class="font-extrabold text-center text-[36px]">
-        {{ $t("home-header") }}
+        senimentari blog
       </h1>
       <div data-aos="fade-left" class="max-w-[700px] w-full mx-auto">
         <h3 class="font-medium text-center">
-          {{ $t("home-header-desc") }}
+          Website ini menyajikan tips, trik, dan solusi inovatif untuk mengatasi
+          masalah bug dan konfigurasi dalam pengembangan software. Didesain
+          khusus untuk developer pemula yang ingin belajar lebih mudah dan
+          efisien.
         </h3>
       </div>
     </section>
@@ -55,7 +65,7 @@ const findArticle = () => {
             autocomplete="off"
             class="bg-transparent focus:outline-none focus:ring-0 border-none p-1 w-full dark:text-white"
             name="search"
-            :placeholder="$t('search-placeholder')"
+            placeholder="cari judul atau tag artikel"
             type="text"
           />
         </div>
@@ -70,27 +80,27 @@ const findArticle = () => {
       <template v-if="isSearching">
         <CardsArticle
           v-for="article in filteredArticle"
-          :key="article.id"
-          :image="article.image.path"
-          :image-alt="article.image.alt"
-          :preview="article.preview"
+          :key="article._id"
+          :credit="article.thumbnail.credit"
+          :image="article.thumbnail.src"
+          :image-alt="article.title"
+          :preview="article.content[0].text!"
           :title="article.title"
-          :credit="article.image.credit"
           :tags="article.tags"
-          :path="article.path"
+          :path="'/new-post/' + article.slug"
         />
       </template>
       <template v-else>
         <CardsArticle
           v-for="article in articles"
-          :key="article.id"
-          :credit="article.image.credit"
-          :image="article.image.path"
-          :image-alt="article.image.alt"
-          :preview="article.preview"
+          :key="article._id"
+          :credit="article.thumbnail.credit"
+          :image="article.thumbnail.src"
+          :image-alt="article.title"
+          :preview="article.content[0].text!"
           :title="article.title"
           :tags="article.tags"
-          :path="article.path"
+          :path="'/new-post/' + article.slug"
         />
       </template>
     </section>

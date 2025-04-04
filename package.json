@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@nuxtjs/i18n": "^8.5.5",
+    "@types/mongoose": "^5.11.96",
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
+    "mongoose": "^8.12.1",
     "nuxt": "^3.13.0",
     "nuxt-aos": "^1.2.5",
     "vue": "latest",
