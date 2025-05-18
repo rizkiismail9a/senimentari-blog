@@ -21,11 +21,11 @@ defineProps<{
       :title="credit"
     />
 
-    <h4 class="font-bold">
+    <h3 class="font-bold">
       <NuxtLink :to="path">
         {{ title }}
       </NuxtLink>
-    </h4>
+    </h3>
 
     <div id="tags">
       <span
