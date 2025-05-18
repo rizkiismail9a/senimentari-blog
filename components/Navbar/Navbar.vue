@@ -5,19 +5,8 @@ defineProps<{
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
-// const { setLocale } = useI18n();
-// const showLangOption = ref<boolean>(false);
-// const toggleLangOption = useToggle(showLangOption);
-const showMobileNavbar = ref<boolean>(false);
 
-// /**
-//  *
-//  * @param {string} lang The name of language target. It accepts 'id' and 'en'
-//  */
-// const changeLanguages = (lang: "id" | "en") => {
-//   setLocale(lang);
-//   toggleLangOption();
-// };
+const showMobileNavbar = ref<boolean>(false);
 </script>
 
 <template>
@@ -48,7 +37,7 @@ const showMobileNavbar = ref<boolean>(false);
           href="https://mr-ismail-page.vercel.app/"
           class="font-medium tracking-[0.24px]"
         >
-          Tentang Kami
+          Tentang Saya
         </a>
       </div>
 
@@ -70,38 +59,6 @@ const showMobileNavbar = ref<boolean>(false);
             isDark ? 'fa-sun' : 'fa-moon'
           } text-lg cursor-pointer`"
         ></i>
-
-        <!-- <div v-if="useLanguage" id="lang-dropdown" class="relative">
-          <i
-            class="fa-solid fa-globe cursor-pointer text-lg"
-            @click="toggleLangOption()"
-          ></i>
-
-
-          <div
-            v-show="showLangOption"
-            class="bg-white dark:bg-dark-medium w-[100px] h-fit text-sm shadow-md absolute z-10 right-3 md:right-0 text-dark dark:text-white p-2 rounded-md"
-          >
-            <ul>
-              <li class="cursor-pointer" @click="changeLanguages('id')">
-                <img
-                  src="/icons/indonesia-flag-icon-16.png"
-                  alt="bendera-indonesia"
-                  class="inline-block mr-2"
-                />
-                <span>id</span>
-              </li>
-              <li class="cursor-pointer" @click="changeLanguages('en')">
-                <img
-                  src="/icons/united-states-of-america-flag-icon-16.png"
-                  alt="american-flag"
-                  class="inline-block mr-2"
-                />
-                <span>en</span>
-              </li>
-            </ul>
-          </div>
-        </div> -->
       </div>
     </div>
     <div
