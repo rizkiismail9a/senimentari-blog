@@ -5,5 +5,5 @@ export default defineEventHandler(async (event) => {
 
   const { slug } = event.context.params as { slug: string };
 
-  return await Articles.findOne({ slug });
+  return await Articles.findOne({ slug: "/new-post/" + slug });
 });

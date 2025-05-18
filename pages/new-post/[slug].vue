@@ -95,11 +95,11 @@ useHead({
 const moreContent = ref<{ title: string; link: string }[]>([
   {
     title: "Cara Menggunakan Skema Refresh pada Nuxt Auth",
-    link: "/post/refresh-token-scheme",
+    link: "/new-post/refresh-token-scheme",
   },
   {
     title: "Cara Membuat Tombol Subscribe Notifikasi dengan OneSignal",
-    link: "/post/custom-onesignal-button",
+    link: "/new-post/custom-onesignal-button",
   },
 ]);
 </script>
