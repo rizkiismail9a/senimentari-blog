@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   devServer: {
     port: 8080,
   },
+
   runtimeConfig: {
     dbURI: process.env.MONGODB_URI,
     jwtSecret: process.env.JWT_SECRET,
@@ -13,12 +14,13 @@ export default defineNuxtConfig({
       secretKey: process.env.Secret_Key,
     },
   },
+
   pages: true,
+
   css: ["~/assets/css/main.css"],
-  modules: ["@vueuse/nuxt", "@nuxtjs/i18n", "nuxt-aos", "@vite-pwa/nuxt"],
-  i18n: {
-    vueI18n: "./i18n.config.ts",
-  },
+
+  modules: ["@vueuse/nuxt", "nuxt-aos", "@vite-pwa/nuxt"],
+
   aos: {
     // Global settings:
     disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -39,12 +41,14 @@ export default defineNuxtConfig({
     mirror: false, // whether elements should animate out while scrolling past them
     anchorPlacement: "top-center", // defines which position of the element regarding to window should trigger the animation
   },
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   app: {
     head: {
       title: "senimentari blog",
@@ -147,6 +151,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   pwa: {
     manifest: {
       name: "senimentari blog",
