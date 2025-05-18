@@ -117,7 +117,7 @@ const saveArticles = async () => {
         />
         <InputText
           v-model="newArticle.slug"
-          placeholder="Masukkan Url Artikel"
+          placeholder="Masukkan Url Artikel dengan format /new-post/[judul-baru]"
         />
         <InputText
           v-model="newArticle.thumbnail.src"

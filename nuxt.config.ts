@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   devServer: {
     port: 8080,
   },
+
   runtimeConfig: {
     dbURI: process.env.MONGODB_URI,
     jwtSecret: process.env.JWT_SECRET,
@@ -13,12 +14,13 @@ export default defineNuxtConfig({
       secretKey: process.env.Secret_Key,
     },
   },
+
   pages: true,
+
   css: ["~/assets/css/main.css"],
-  modules: ["@vueuse/nuxt", "@nuxtjs/i18n", "nuxt-aos", "@vite-pwa/nuxt"],
-  i18n: {
-    vueI18n: "./i18n.config.ts",
-  },
+
+  modules: ["@vueuse/nuxt", "nuxt-aos", "@vite-pwa/nuxt"],
+
   aos: {
     // Global settings:
     disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -39,15 +41,17 @@ export default defineNuxtConfig({
     mirror: false, // whether elements should animate out while scrolling past them
     anchorPlacement: "top-center", // defines which position of the element regarding to window should trigger the animation
   },
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   app: {
     head: {
-      title: "senimentari blog | tips dan trik software development",
+      title: "senimentari blog",
       htmlAttrs: {
         lang: "id",
       },
@@ -92,12 +96,11 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "Aplikasi penyaji tips, trik, dan solusi inovatif untuk mengatasi masalah bug dan konfigurasi dalam pengembangan software. Didesain khusus untuk developer pemula yang ingin belajar lebih mudah dan efisien.",
+            "Blog artikel pribadi dari penulis Yuri Ostrovsky, berisi artikel, makalah, dan cerita pendek dari berbagai tema.",
         },
         {
           name: "keywords",
-          content:
-            "javascript, git, onesignal, tips, developer, pemula, bug, error, cara, trik",
+          content: "makalah, artikel, development, pendidikan, teknologi",
         },
         {
           name: "author",
@@ -109,12 +112,12 @@ export default defineNuxtConfig({
         },
         {
           property: "og:title",
-          content: "senimentari blog | tips dan trik software development",
+          content: "senimentari blog",
         },
         {
           property: "og:description",
           content:
-            "Kumpulan artikel yang berisi tips, trik, dan panduan konfigurasi serta debug pada pengembangan software",
+            "Blog artikel pribadi dari penulis Yuri Ostrovsky, berisi artikel, makalah, dan cerita pendek dari berbagai tema.",
         },
         {
           property: "og:type",
@@ -134,12 +137,12 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:title",
-          content: "senimentari blog | tips dan trik software development",
+          content: "senimentari blo",
         },
         {
           name: "twitter:description",
           content:
-            "Aplikasi penyaji tips, trik, dan solusi inovatif untuk mengatasi masalah bug dan konfigurasi dalam pengembangan software.",
+            "Blog artikel pribadi dari penulis Yuri Ostrovsky, berisi artikel, makalah, dan cerita pendek dari berbagai tema.",
         },
         {
           name: "twitter:image",
@@ -148,13 +151,14 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   pwa: {
     manifest: {
       name: "senimentari blog",
       short_name: "senimentari blog",
       theme_color: "#ffffff",
       description:
-        "Aplikasi penyaji tips, trik, dan solusi inovatif untuk mengatasi masalah bug dan konfigurasi dalam pengembangan software. Didesain khusus untuk developer pemula yang ingin belajar lebih mudah dan efisien.",
+        "Blog artikel pribadi dari penulis Yuri Ostrovsky, berisi artikel, makalah, dan cerita pendek dari berbagai tema.",
       start_url: "/",
       icons: [
         {

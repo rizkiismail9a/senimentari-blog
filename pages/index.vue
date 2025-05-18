@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Navbar from "~/components/Navbar/Navbar.vue";
-// import { articles } from "~/public/articles/previews";
 import type { Article } from "~/types/articles.type";
 
 const { data: articles } = await useAsyncData(
@@ -44,12 +43,10 @@ const findArticle = () => {
         senimentari blog
       </h1>
       <div data-aos="fade-left" class="max-w-[700px] w-full mx-auto">
-        <h3 class="font-medium text-center">
-          Website ini menyajikan tips, trik, dan solusi inovatif untuk mengatasi
-          masalah bug dan konfigurasi dalam pengembangan software. Didesain
-          khusus untuk developer pemula yang ingin belajar lebih mudah dan
-          efisien.
-        </h3>
+        <h2 class="font-medium text-center">
+          Website ini memuat serangkaian tulisan, artikel, makalah, dan cerita
+          yang pernah ditulis oleh Yuri Ostrovsky.
+        </h2>
       </div>
     </section>
 
@@ -65,7 +62,7 @@ const findArticle = () => {
             autocomplete="off"
             class="bg-transparent focus:outline-none focus:ring-0 border-none p-1 w-full dark:text-white"
             name="search"
-            placeholder="cari judul atau tag artikel"
+            placeholder="cari judul atau tag"
             type="text"
           />
         </div>
@@ -87,7 +84,7 @@ const findArticle = () => {
           :preview="article.content[0].text!"
           :title="article.title"
           :tags="article.tags"
-          :path="'/new-post/' + article.slug"
+          :path="article.slug"
         />
       </template>
       <template v-else>
@@ -100,7 +97,7 @@ const findArticle = () => {
           :preview="article.content[0].text!"
           :title="article.title"
           :tags="article.tags"
-          :path="'/new-post/' + article.slug"
+          :path="article.slug"
         />
       </template>
     </section>

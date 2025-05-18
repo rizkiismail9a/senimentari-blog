@@ -4,13 +4,12 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv .env.local",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/i18n": "^8.5.5",
     "@types/mongoose": "^5.11.96",
     "@vueuse/core": "^11.1.0",
     "@vueuse/nuxt": "^11.1.0",
